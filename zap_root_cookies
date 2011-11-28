@@ -1,0 +1,22 @@
+// deletes root cookies for current domain
+javascript: (function () {
+    var C = document.cookie.split("; ");
+    if (C[0]) {
+	var locparts = location.host.split(".");
+	for (var i = 0; i < locparts.length-1; i++) {
+	    var loc = locparts.slice(i).join(".");
+	    for (var ookie in C) {
+		var deletestring = "; domain=" + loc +
+		    "; path=/; expires=Thu, 01-Jan-1970 00:00:01 GMT";
+		document.cookie = C[ookie] + deletestring;
+	    }
+	}
+	if (document.cookie) {
+	    alert('cookie deletion failed');
+	} else {
+	    alert('cookies deleted');
+	}
+    } else {
+	alert('no cookies found');
+    }
+})();
