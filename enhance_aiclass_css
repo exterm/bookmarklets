@@ -1,0 +1,13 @@
+// fix ai-class.com css for opera
+// and make better use of wide screens
+// Is an ugly hack. Works though!
+javascript:(function(){
+    $('div#main').css('width', '1200px');
+    $('div#col_wrapper').css('width', 'auto');
+    $('div#left_col').css('width', '450px');
+    $('div#right_col').css('width', '750px');
+    $('span.ctree-current, span.ctree-status').css('position', 'static');
+    $('span.ctree-current, span.ctree-status').css('display', 'inline-block');
+    $('a.continue_button').remove();
+    $('div#left_col > div:nth-of-type(2)').remove();
+})();
